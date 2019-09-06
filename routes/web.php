@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user/new', 'createUserController@load');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/Productos','ProductoController@index');
+Route::get('/Productos/{id}','ProductoController@show');
+Route::get('/Productos/{id}','ProductoController@edit');
+Route::get('/Productos/{id}','ProductoController@update');
+Route::get('/Productos/{id}','ProductoController@destroy');
