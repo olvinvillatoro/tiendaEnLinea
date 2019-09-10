@@ -1,31 +1,36 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
-//crear un nuevo usuario cliente
-Route::redirect('/user/new', '/register');
+Route::get('/user/new', 'createUserController@load');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/client', 'createUserController@load')->name('user.load');
-Route::get('/client/all','clientController@index')->name('client.index');
 
-Route::get('/client/{cliente}', 'clientController@show')->name('client.show');
-
-Route::get('/provider', 'createUserController@load')->name('user.load');
-Route::get('/provider/all','providerController@index')->name('provider.index');
-
-Route::get('/provider/{proveedor}', 'providerController@show')->name('provider.show');
-=======
 
 Route::get('/Productos','ProductoController@index');
 Route::get('/Productos/{id}','ProductoController@show');
 Route::get('/Productos/{id}','ProductoController@edit');
 Route::get('/Productos/{id}','ProductoController@update');
 Route::get('/Productos/{id}','ProductoController@destroy');
->>>>>>> a30bc7b96f2fa0212cc6c6f3d07d1dddae04d6d7
+
+//Routes para Factura
+Route::get('/facturas','FacturaController@index');
+Route::get('/facturas/create','FacturaController@create');//Crea la Factura
+Route::post('facturas','FacturaController@store');//Procesa la peticion
+Route::get('/facturas/{factura}','FacturaController@show');//Mostrar detalle de Factura
+
+
