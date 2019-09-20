@@ -20,12 +20,22 @@ Route::get('/user/new', 'createUserController@load');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+// Rutas para Producto
 Route::get('/Productos','ProductoController@index');
-Route::get('/Productos/{id}','ProductoController@show');
-Route::get('/Productos/{id}','ProductoController@edit');
-Route::get('/Productos/{id}','ProductoController@update');
-Route::get('/Productos/{id}','ProductoController@destroy');
+Route::get('/Producto/{id}','ProductoController@detalle');
+Route::get('/Productos/Insertar','ProductoController@Insertar');
+Route::get('/Productos/Eliminar/{id}','ProductoController@eliminar');
+Route::get('/Productos/Editar/{id}','ProductoController@editar');
+//Route::get('/Productos/{id}','ProductoController@update');
+
+//Rutas para Marca
+Route::get('/Marcas','MarcaController@index');
+Route::get('/Marca/{id}','MarcaController@detalle');
+Route::get('/Marcas/Insertar','MarcaController@Insertar');
+Route::get('/Marcas/Eliminar/{id}','MarcaController@eliminar');
+Route::get('/Marcas/Editar/{id}','MarcaController@editar');
+
+
 
 //Routes para Factura
 Route::get('/facturas','FacturaController@index');
