@@ -25,7 +25,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-8        /*
+        /*
         
         */
     }

@@ -14,7 +14,7 @@ class CreateTarjetasTable extends Migration
     public function up()
     {
         Schema::create('tarjetas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('numero_tarjeta');
             $table->text('nombre');
             $table->text('apellido');
             $table->datetime('fecha_vencimiento');

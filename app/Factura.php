@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Factura extends Model
 {
-    protected $table = "FACTURAS";
+    protected $table = "facturas";
 
     protected $primaryKey ="id_factura"; // Llave primaria de la FACTURAS
     public $incrementing = false;//el id de esta tabla no es autoincrementable

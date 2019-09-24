@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoUsuario extends Model
 {
-    protected $table = "TIPO_USUARIOS";
+    protected $table = "tipo_usuarios";
 
     protected $primaryKey ="id_tipo_usuario"; // Llave primaria de la TIPO_USUARIOS
     public $incrementing = false;//el id de esta tabla no es autoincrementable

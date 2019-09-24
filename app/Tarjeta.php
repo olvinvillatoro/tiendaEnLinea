@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarjeta extends Model
 {
-    protected $table = "TARJETAS";
+    protected $table = "tarjetas";
 
     protected $primaryKey ="numero_tarjeta"; //Llave primaria de la TARJETAS
     public $incrementing=false; //el id de esta tabla no es autoincrementable

@@ -7,7 +7,6 @@ use App\Proveedor;
 
 class providerController extends Controller
 {
-    
     public function index(){
         $proveedores=Proveedor::all();
         dd($proveedores); 
