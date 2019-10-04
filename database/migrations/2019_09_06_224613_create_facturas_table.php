@@ -17,7 +17,7 @@ class CreateFacturasTable extends Migration
             $table->bigIncrements('id');
             //$table->bigInteger('id_carrito');
             $table->float('total',8,2);
-            $table-datetime('fecha');
+            $table->date('fecha');
 
 
             $table->timestamps();
