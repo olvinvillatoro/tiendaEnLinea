@@ -14,6 +14,11 @@ class PageController extends Controller
         return view('pages.icons');
     }
 
+    public function tarjetas()
+    {
+        return view('pages.tarjeta');
+    }
+
     /**
      * Display maps page
      *

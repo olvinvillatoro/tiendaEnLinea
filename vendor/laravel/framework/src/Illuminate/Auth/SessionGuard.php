@@ -16,6 +16,7 @@ use Illuminate\Contracts\Cookie\QueueingFactory as CookieJar;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
+
 class SessionGuard implements StatefulGuard, SupportsBasicAuth
 {
     use GuardHelpers, Macroable;

@@ -15,8 +15,9 @@ class Tarjeta extends Model
     public $timestamps=false; //Prop. para agregar columnas de creacion y actualizacion de registro, en false no crea esa columna en la BD
 
     protected $fillable =[
-                         'nombre',
-                         'apellido',
+                         'numero_tarjeta',
+                         'titular',
+                         'ccv',
                          'fecha_vencimiento'
                         
     ];

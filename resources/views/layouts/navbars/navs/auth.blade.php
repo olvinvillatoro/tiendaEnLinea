@@ -26,7 +26,7 @@
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="notification d-none d-lg-block d-xl-block"></div>
                         <i class="tim-icons icon-sound-wave"></i>
-                        <p class="d-lg-none"> {{ __('Notifications') }} </p>
+                        <p class="d-lg-none"> {{ __('Notificaciones') }} </p>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
                         <li class="nav-link">

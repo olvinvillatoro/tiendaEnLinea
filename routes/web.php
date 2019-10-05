@@ -5,13 +5,15 @@
     return view('welcome');
 });
 */
-Route::get('/', 'WelcomeController@index')->name('welcome');
+Route::get('/', 'WelcomeController@index')->middleware('auth');
+	
+
 //crear un nuevo usuario cliente
 Route::redirect('/user/new', '/register');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/client', 'createUserController@load')->name('user.load');
 Route::get('/client/all','clientController@index')->name('client.index');
 
@@ -36,7 +38,8 @@ Route::get('/Factura/{id_factura}','FacturaController@show');
 
 
 //rutas tarjetas
-Route::get('/Tarjeta','TarjetaController@create');
+Route::get('/tarjeta','TarjetaController@vista');
+Route::post('/tarjeta','TarjetaController@create');
 Route::get('/Tarjeta/{numero_tarjeta}','TarjetaController@show');
 Route::get('/Tarjeta/edit','TarjetaController@edit');
 Route::get('/Tarjeta/destroy','TarjetaController@destroy');
@@ -56,6 +59,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
+		Route::get('tarjeta', ['as' => 'pages.tarjeta', 'uses' => 'PageController@tarjetas']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
 		Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'PageController@notifications']);
 		Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'PageController@rtl']);

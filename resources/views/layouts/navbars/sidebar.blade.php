@@ -35,6 +35,14 @@
                     </ul>
                 </div>
             </li>
+            <!--TARJETA-->
+            <li @if ($pageSlug == 'tarjeta') class="active " @endif>
+                <a href="{{ route('pages.tarjeta') }}">
+                    <i class="tim-icons icon-credit-card"></i>
+                    <p>{{ __('Agregar Tarjeta') }}</p>
+                </a>
+            </li>
+            <!--Tarjeta-->
             <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
