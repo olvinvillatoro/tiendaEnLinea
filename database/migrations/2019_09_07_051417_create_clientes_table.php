@@ -17,7 +17,7 @@ class CreateClientesTable extends Migration
             $table->bigIncrements('id_cliente');
             $table->bigInteger('id_persona')->unsigned();
             $table->integer('numero_tarjeta')->nullable();
-            $table->text('direccion_cliente')->nullable()->default('No Definida');
+            $table->text('direccion_cliente')->nullable();
             $table->timestamps();
 
             $table->foreign('id_persona')->references('id_persona')->on('personas');

@@ -7,22 +7,17 @@ use Illuminate\Http\Request;
 class FacturaController extends Controller
 {
     public function index(){
-        $facturas= \DB::table('facturas')->select('id_factura','total','fecha')->get();
-        //return view('factura.index',['facturas'=> $facturas]);
-        //return view('facturas', compact('facturas'));
-        return $facturas;
-    }
-    public function create(){
-        return'creacion de una factura';
+        $facturas = \DB::table('facturas')
+            ->join('carritos','facturas.id_carrito','carritos.id_carrito')
+            ->join('clientes','carritos.id_cliente','clientes.id_cliente')
+            ->join('tarjetas','clientes.numero_tarjeta','tarjetas.numero_tarjeta')
+            ->select('facturas.*','carritos.id_cliente','clientes.numero_tarjeta','tarjetas.titular')
+            ->get();
+            
+        return view('factura',['facturas' => $facturas]);
        
-
     }
-    public function show($id_factura){ 
-         //$facturas=Factura::whereFactura($id_factura)->first();
-       
-         return'mostrando factura con id: ' . $id_factura;
-
-    }
+    
     public function store(Request $request){ //Procesar la creacion de una factura
         return'Generando factura';
     }

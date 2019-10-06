@@ -14,15 +14,15 @@ class CreateFacturasTable extends Migration
     public function up()
     {
         Schema::create('facturas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            //$table->bigInteger('id_carrito');
+            $table->bigIncrements('id_factura');
+            $table->bigInteger('id_carrito');
             $table->float('total',8,2);
             $table->date('fecha');
 
 
             $table->timestamps();
 
-            //$table->foreign('id_carrito')->references('id_carrito')->on('carritos');
+            $table->foreign('id_carrito')->references('id_carrito')->on('carritos');
         });
     }
 

@@ -31,10 +31,9 @@ Route::get('/Productos/{id}','ProductoController@update');
 Route::get('/Productos/{id}','ProductoController@destroy');
 
 //rutas Factura
-Route::get('/Factura', 'FacturaController@index'); //muestra datos de la tabla Facturas
-Route::get('/Factura/crear', 'FacturaController@create');
+Route::get('/Factura', 'FacturaController@index')->name('factura'); //muestra datos de la tabla Facturas
 Route::get('/Factura/store/request', 'FacturaController@store');
-Route::get('/Factura/{id_factura}','FacturaController@show');
+
 
 
 //rutas tarjetas
@@ -44,15 +43,16 @@ Route::get('/Tarjeta/{numero_tarjeta}','TarjetaController@show');
 Route::get('/Tarjeta/edit','TarjetaController@edit');
 Route::get('/Tarjeta/destroy','TarjetaController@destroy');
 
+
+
 //rutas tipos de usuario
 Route::get('/TipoUsuario','TipoUsuarioController@index');
 Route::get('/TipoUsuario/{id_tipo_usuario}','TipoUsuarioController@create');
 
+//rutas carrito
+Route::get('/Carrito','CarritoController@show')->name('carrito');
+Route::get('/Carrito/{id}','CarritoController@comprar');
 
-//ruta de prueba, muestra formato de factura aun no muestra datos de la BD
-Route::get('facturas', function() {
-    return view('facturas');
-})->name('facturas');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');

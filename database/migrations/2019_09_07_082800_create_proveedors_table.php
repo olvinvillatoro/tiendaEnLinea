@@ -19,7 +19,7 @@ class CreateProveedorsTable extends Migration
             $table->longText('nombre_proveedor')->nullable();
             $table->text('correo_proveedor')->nullable();
             $table->longText('contacto_proveedor')->nullable();
-            $table->longText('descripcion_proveedor')->nullable()->default('Tienda Sin Descripcion');
+            $table->longText('descripcion_proveedor')->nullable();
 
             $table->timestamps();
             $table->foreign('id_persona_encargada')->references('id_persona')->on('personas');
