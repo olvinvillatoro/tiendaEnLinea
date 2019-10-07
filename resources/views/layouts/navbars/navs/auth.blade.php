@@ -15,8 +15,18 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
+            <!--Carrito-->
+            <<li class="nav-item">
+                    <a href="{{route('carrito')}}" class=" nav-link" >
+                    
+                        <div class="photo">
+                            <img src="{{ asset('black') }}/img/car.png" alt="">
+                        </div>
+                </li>
+           
                 <li class="search-bar input-group">
                     <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
                         <span class="d-lg-none d-md-block">{{ __('Search') }}</span>

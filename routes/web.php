@@ -24,6 +24,7 @@ Route::get('/provider/all','providerController@index')->name('provider.index');
 
 Route::get('/provider/{proveedor}', 'providerController@show')->name('provider.show');
 
+//rutas Productos
 Route::get('/Productos','ProductoController@index');
 Route::get('/Productos/{id}','ProductoController@show');
 Route::get('/Productos/{id}','ProductoController@edit');
@@ -50,7 +51,7 @@ Route::get('/TipoUsuario','TipoUsuarioController@index');
 Route::get('/TipoUsuario/{id_tipo_usuario}','TipoUsuarioController@create');
 
 //rutas carrito
-Route::get('/Carrito','CarritoController@show')->name('carrito');
+Route::get('/Carrito','CarritoController@show')->name('carrito');//muestra datos de la tabla carritos
 Route::get('/Carrito/{id}','CarritoController@comprar');
 
 Auth::routes();
@@ -74,4 +75,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
+
+
 
