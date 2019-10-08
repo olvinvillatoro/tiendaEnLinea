@@ -19,7 +19,7 @@ class CreateCarritosTable extends Migration
             $table->datetime('fecha');
             $table->timestamps();
 
-            $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
+           // $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
         });
 
     }

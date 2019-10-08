@@ -5,7 +5,7 @@
     return view('welcome');
 });
 */
-Route::get('/', 'WelcomeController@index')->middleware('auth');
+Route::get('/', 'WelcomeController@index');//->middleware('auth');
 	
 
 //crear un nuevo usuario cliente
@@ -25,7 +25,7 @@ Route::get('/provider/all','providerController@index')->name('provider.index');
 Route::get('/provider/{proveedor}', 'providerController@show')->name('provider.show');
 
 //rutas Productos
-Route::get('/Productos','ProductoController@index');
+Route::get('/productos','ProductoController@index');
 Route::get('/Productos/{id}','ProductoController@show');
 Route::get('/Productos/{id}','ProductoController@edit');
 Route::get('/Productos/{id}','ProductoController@update');

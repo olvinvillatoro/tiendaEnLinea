@@ -10,8 +10,9 @@
       <div class="card-body">
         
           <form class="form" method="POST" action="{{ action('TarjetaController@create') }}">
+            @csrf
             <div class="card-body">
-              @csrf
+              
 
                    
 
@@ -22,7 +23,7 @@
 
                     <div class="form-group{{ $errors->has('tarjeta') ? ' has-danger' : '' }}">
                         <label>{{ __('Tarjeta') }}</label>
-                        <input type="text" name="tarjeta" class="form-control " placeholder="{{ __('Tarjeta') }}" value="">
+                        <input type="text" name="numero_tarjeta" class="form-control " placeholder="{{ __('Tarjeta') }}" value="">
                     </div>
 
                     <div class="form-group{{ $errors->has('ccv') ? ' has-danger' : '' }}">
@@ -34,10 +35,19 @@
                     <label>{{ __('Fecha de Vencimiento') }}</label>
                     <input type="date" name="fecha_vencimiento" class="form-control" placeholder="{{ __('Fecha de Vencimiento') }}" value="">
                 </div>
-            </div>
+
+                <div class="form-group">
+                  <label>{{ __('Direccion') }}</label>
+                  <input type="text" name="direccion_cliente" class="form-control{{ $errors->has('direccion_cliente') ? ' is-invalid' : '' }}" placeholder="{{ __('Direccion actual') }}" value="">
+              </div>
+             </div>
+           
             <div class="card-footer">
                 <button type="submit" class="btn btn-fill btn-primary">{{ __('Guardar') }}</button>
             </div>
+
+           
+
         </form>
 
 

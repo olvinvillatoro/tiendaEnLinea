@@ -80,10 +80,10 @@ class RegisterController extends Controller
         //id del ultimo usuario igresado
         $usuario->save();
 
-        $idultimo=User::first();
+        $idultimo=$usuario->id;
 
 
-        $person->id=$idultimo->id;
+        $person->id=$idultimo;
         $person->nombre_persona=$data['name'];
         $person->apellido_persona=$data['apellido_persona'];
         $person->correo_persona=$data['email'];
