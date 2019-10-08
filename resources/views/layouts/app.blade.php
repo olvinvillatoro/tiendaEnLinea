@@ -35,7 +35,6 @@
         <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
        
       -->
-      <link rel="stylesheet" href="{{ asset('css/style.css') }}">
          <!--LINKS PARA FRONTEND TIENDA-->
         
         <!-- Favicon -->
@@ -49,20 +48,35 @@
         <!-- CSS -->
         <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         
     </head>
        
 
     <body class="{{ $class ?? '' }}">
         @auth()
+             
             <div class="wrapper">
-                    @include('layouts.navbars.sidebar')
-                <div class="main-panel">
-                    @include('layouts.navbars.navbar')
-
-                    <div class="content">
-                        @yield('content')
-                    </div>
+                        @if ($pageSlug=='navegar') 
+                        <div class="">
+                                @include('layouts.navbars.navbar')
+            
+                                <div class="content">
+                                    @yield('content')
+                                </div>   
+                       
+                            @else
+                                @include('layouts.navbars.sidebar')
+                                <div class="main-panel">
+                                        @include('layouts.navbars.navbar')
+                    
+                                        <div class="content">
+                                            @yield('content')
+                                        </div>
+                                
+                        @endif
+                  
+                
 
                     @include('layouts.footer')
                 </div>
@@ -72,7 +86,7 @@
             </form>
         @else
             @include('layouts.navbars.navbar')
-            <div class="wrapper wrapper-full-page">
+           <!-- <div class="wrapper wrapper-full-page">
                 <div class="full-page {{ $contentClass ?? '' }}">
                     <div class="content">
                         <div class="container">
@@ -81,7 +95,11 @@
                     </div>
                     @include('layouts.footer')
                 </div>
-            </div>
+            </div>-->
+            <div class="content">
+                    @yield('content')
+                </div>
+            @include('layouts.footer')
         @endauth
         
         <script src="{{ asset('black') }}/js/core/jquery.min.js"></script>

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'producto'])
+@extends('layouts.app', ['pageSlug' => 'navegar'])
 
 @section('content')
 
@@ -8,6 +8,7 @@
 <div class="container">
     <div class="row">
     <div class="col-md-12 ftco-animate">
+      <div class="card">
         <div class="cart-list">
             <table class="table">
                 <thead class="thead-primary">
@@ -65,8 +66,11 @@
                 </tbody>
               </table>
           </div>
+        </div>
     </div>
 </div>
+
+<div class="card">
 <div class="row justify-content-end">
     <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
         <div class="cart-total mb-3">
@@ -125,6 +129,7 @@
         </div>
         <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
     </div>
+</div>
 </div>
 </div>
 
