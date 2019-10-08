@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarjetasTable extends Migration
+class CreateCarritosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateTarjetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarjetas', function (Blueprint $table) {
-            $table->bigIncrements('numero_tarjeta');
-            $table->text('titular');
-            $table->text('ccv');
-            $table->datetime('fecha_vencimiento');
-
-
+        Schema::create('carritos', function (Blueprint $table) {
+            $table->bigIncrements('id_carrito');
+            $table->bigInteger('id_cliente');
+            $table->datetime('fecha');
             $table->timestamps();
+
+            $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
         });
+
     }
 
     /**
@@ -31,6 +31,6 @@ class CreateTarjetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarjetas');
+        Schema::dropIfExists('carritos');
     }
 }

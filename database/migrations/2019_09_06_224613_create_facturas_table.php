@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarjetasTable extends Migration
+class CreateFacturasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateTarjetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarjetas', function (Blueprint $table) {
-            $table->bigIncrements('numero_tarjeta');
-            $table->text('titular');
-            $table->text('ccv');
-            $table->datetime('fecha_vencimiento');
+        Schema::create('facturas', function (Blueprint $table) {
+            $table->bigIncrements('id_factura');
+            $table->bigInteger('id_carrito');
+            $table->float('total',8,2);
+            $table->date('fecha');
 
 
             $table->timestamps();
+
+            $table->foreign('id_carrito')->references('id_carrito')->on('carritos');
         });
     }
 
@@ -31,6 +33,6 @@ class CreateTarjetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarjetas');
+        Schema::dropIfExists('facturas');
     }
 }
