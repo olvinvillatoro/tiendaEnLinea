@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'register-page', 'page' => __('Registrarse'), 'contentClass' => 'register-page'])
+@extends('layouts.app', ['class' => 'register-page', 'page' => __('Registrarse'), 'contentClass' => 'register-page', 'pageSlug' => 'registro'])
 
 @section('content')
     <div class="row">

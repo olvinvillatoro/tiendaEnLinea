@@ -87,13 +87,13 @@
         @else
             @include('layouts.navbars.navbar')
            <!-- <div class="wrapper wrapper-full-page">
-                <div class="full-page {{ $contentClass ?? '' }}">
+                <div class="full-page { $contentClass ?? '' }}">
                     <div class="content">
                         <div class="container">
-                            @yield('content')
+                            @ yield('content')
                         </div>
                     </div>
-                    @include('layouts.footer')
+                    @ include('layouts.footer')
                 </div>
             </div>-->
             <div class="content">
