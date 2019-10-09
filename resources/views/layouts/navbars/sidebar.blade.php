@@ -43,6 +43,14 @@
                 </a>
             </li>
             <!--Tarjeta-->
+            <!--Productos-->
+            <li @if ($pageSlug == 'producto') class="active " @endif>
+                <a href="{{ url('/productos/crear') }}">
+                    <i class="tim-icons icon-simple-add"></i>
+                    <p>{{ __('Agregar Celular') }}</p>
+                </a>
+            </li>
+            <!--Productos-->
             <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>

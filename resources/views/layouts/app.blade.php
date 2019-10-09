@@ -7,7 +7,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Black Dashboard') }}</title>
+        <title>{{ config('app.name', 'Celulares') }}</title>
         
         
         <!--LINKS PARA FRONTEND TIENDA-->
@@ -31,8 +31,8 @@
         <link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css') }}">
 
         
-      <!--  <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+      <!--  <link rel="stylesheet" href="{ asset('css/flaticon.css') }}">
+        <link rel="stylesheet" href="{ asset('css/icomoon.css') }}">
        
       -->
          <!--LINKS PARA FRONTEND TIENDA-->
@@ -53,7 +53,7 @@
     </head>
        
 
-    <body class="{{ $class ?? '' }}">
+    <body class=" {{ $class ?? '' }}" style="background: radial-gradient(circle, rgba(238,174,202,0.3085434002702644) 53%, rgba(148,187,233,0.263725473099396) 97%);">
         @auth()
              
             <div class="wrapper">
@@ -61,10 +61,16 @@
                         <div class="">
                                 @include('layouts.navbars.navbar')
             
-                                <div class="content">
-                                    @yield('content')
-                                </div>   
-                       
+                                <div class="wrapper wrapper-full-page">
+                                    <div class="full-page { $contentClass ?? '' }}">
+                                        <div class="content">
+                                            <div class="container">
+                                                @yield('content')
+                                            </div>
+                                        </div>
+                                        @include('layouts.footer')
+                                    </div>
+                                </div>
                             @else
                                 @include('layouts.navbars.sidebar')
                                 <div class="main-panel">
@@ -73,12 +79,13 @@
                                         <div class="content">
                                             @yield('content')
                                         </div>
+                                        @include('layouts.footer')
                                 
                         @endif
                   
                 
 
-                    @include('layouts.footer')
+                  
                 </div>
             </div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -86,20 +93,20 @@
             </form>
         @else
             @include('layouts.navbars.navbar')
-           <!-- <div class="wrapper wrapper-full-page">
+            <div class="wrapper wrapper-full-page">
                 <div class="full-page { $contentClass ?? '' }}">
                     <div class="content">
                         <div class="container">
-                            @ yield('content')
+                            @yield('content')
                         </div>
                     </div>
-                    @ include('layouts.footer')
+                    @include('layouts.footer')
                 </div>
-            </div>-->
-            <div class="content">
-                    @yield('content')
+            </div>
+          <!--  <div class="content">
+                    @ yield('content')
                 </div>
-            @include('layouts.footer')
+            @ include('layouts.footer') -->
         @endauth
         
         <script src="{{ asset('black') }}/js/core/jquery.min.js"></script>

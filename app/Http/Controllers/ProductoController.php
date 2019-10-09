@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Producto;
 use Illuminate\Http\Request;
+use App\Modelo;
+use App\Marca;
+use App\DetalleProducto;
+use App\Http\Controllers\Controller;
 
 class ProductoController extends Controller
 {
@@ -23,11 +27,39 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $data)
     {
-        /*
+        $producto=new Producto;
+        $modelo= new Modelo;
+        $marca = new Marca;
+        $detalle= new DetalleProducto;
+
+        $marca = Marca::select('id')->where('nombre_marca', $data->marca)->first();
         
-        */
+        $marca->save();
+                $producto->id_modelo=1;
+                $producto->descripcion= $data['descripcion'];
+                $producto->url_imagen=$data['url_imagen']->store('uploads', 'public');
+                
+            
+            if ($producto->save()) {
+              
+                $modelo->id_marca=$marca['id'];
+                $modelo->id_producto=$producto['id'];
+
+                $modelo->nombre_modelo=$data['nombre_modelo'];
+                $modelo->save();
+               return view('producto');// return url('/productos/'.$producto['id']);
+            }
+
+        
+        else{
+            return view('tables');
+        }
+        
+
+
+
     }
 
     /**
@@ -49,8 +81,9 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        //
-        return 'este es el producto con id:'.$id;
+        $producto= Producto::select('*')->where('id', $id)->first();
+
+        return $producto;
     }
 
     /**
@@ -86,4 +119,9 @@ class ProductoController extends Controller
     {
         //
     }
+
+    public function vista(){
+        return view('pages.registroProducto');
+    }
+
 }

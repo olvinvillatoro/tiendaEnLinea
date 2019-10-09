@@ -26,10 +26,12 @@ Route::get('/provider/{proveedor}', 'providerController@show')->name('provider.s
 
 //rutas Productos
 Route::get('/productos','ProductoController@index');
-Route::get('/Productos/{id}','ProductoController@show');
-Route::get('/Productos/{id}','ProductoController@edit');
-Route::get('/Productos/{id}','ProductoController@update');
-Route::get('/Productos/{id}','ProductoController@destroy');
+Route::post('/productos','ProductoController@create');
+Route::get('/productos/crear','ProductoController@vista');
+Route::get('/productos/{id}','ProductoController@show');
+Route::post('/productos/{id}','ProductoController@show');
+
+
 
 //rutas Factura
 Route::get('/Factura', 'FacturaController@index')->name('factura'); //muestra datos de la tabla Facturas

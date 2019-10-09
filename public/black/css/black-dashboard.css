@@ -10551,9 +10551,9 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .navbar .navbar-nav>a.btn.btn-link:hover,
 .navbar .navbar-nav>a.btn.btn-link:focus,
 .navbar .navbar-nav>a.btn.btn-link:active {
-  background-color: transparent !important;
+  background-color: rgba(37, 35, 35, 0.5) !important;
   background-image: none !important;
-  color: #ffffff !important;
+  color: #807b7b !important;
   text-decoration: none;
   box-shadow: none;
 }
@@ -13419,8 +13419,8 @@ img {
 }
 
 .navbar.navbar-transparent {
-  background: transparent !important;
-}
+
+  background: radial-gradient(circle, rgba(238,174,202,0.3085434002702644) 53%, rgba(148,187,233,0.263725473099396) 97%);}
 
 .navbar.bg-white .navbar-nav .search-bar.input-group i {
   color: #222a42;

@@ -22,7 +22,7 @@ class CreateFacturasTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('id_carrito')->references('id_carrito')->on('carritos');
+           // $table->foreign('id_carrito')->references('id_carrito')->on('carritos');
         });
     }
 

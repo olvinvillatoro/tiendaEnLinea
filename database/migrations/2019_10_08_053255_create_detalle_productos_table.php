@@ -16,9 +16,9 @@ class CreateDetalleProductosTable extends Migration
         Schema::create('detalle_productos', function (Blueprint $table) {
             $table->bigIncrements('id_detalle');
             $table->bigInteger('id_producto');
-            $table->foreign('id_producto')->references('id_producto')->on('productos');
+         //   $table->foreign('id_producto')->references('id_producto')->on('productos');
             $table->bigInteger('id_proveedor');
-            $table->foreign('id_proveedor')->references('id_proveedor')->on('proveedores');
+           // $table->foreign('id_proveedor')->references('id_proveedor')->on('proveedores');
             $table->integer('precio');
             $table->integer('cantidad');
             $table->timestamps();

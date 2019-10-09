@@ -57,7 +57,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color:radial-gradient(circle, rgba(238,174,202,0.3085434002702644) 53%, rgba(148,187,233,0.263725473099396) 97%); }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -9511,7 +9511,7 @@ textarea.form-control {
 .mfp-with-zoom .mfp-container,
 .mfp-with-zoom.mfp-bg {
   opacity: 0;
-  -webkit-backface-visibility: hidden;
+ /* -webkit-backface-visibility: hidden;*/
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
