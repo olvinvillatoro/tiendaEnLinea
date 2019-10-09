@@ -25,7 +25,7 @@ Route::get('/provider/all','providerController@index')->name('provider.index');
 Route::get('/provider/{proveedor}', 'providerController@show')->name('provider.show');
 
 //rutas Productos
-Route::get('/productos','ProductoController@index');
+Route::get('/productos','WelcomeController@index');
 Route::post('/productos','ProductoController@create');
 Route::get('/productos/crear','ProductoController@vista');
 Route::get('/productos/{id}','ProductoController@show');
