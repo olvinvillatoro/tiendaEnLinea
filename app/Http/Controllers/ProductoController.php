@@ -29,7 +29,7 @@ class ProductoController extends Controller
      */
     public function create(Request $data)
     {
-        $producto=new Producto;
+        $productos=new Producto;
         $modelo= new Modelo;
         $marca = new Marca;
         $detalle= new DetalleProducto;
@@ -38,19 +38,19 @@ class ProductoController extends Controller
         
        if ($marca->save()) {
                   
-                $producto->id_modelo=1;
-                $producto->descripcion= $data['descripcion'];
-                $producto->url_imagen=$data['url_imagen']->store('uploads', 'public');
+                $productos->id_modelo=1;
+                $productos->descripcion= $data['descripcion'];
+                $productos->url_imagen=$data['url_imagen']->store('uploads', 'public');
                 
             
-                if ($producto->save()) {
+                if ($productos->save()) {
                 
                     $modelo->id_marca=$marca['id'];
-                    $modelo->id_producto=$producto['id'];
+                    $modelo->id_producto=$productos['id'];
 
                     $modelo->nombre_modelo=$data['nombre_modelo'];
                     $modelo->save();
-                return view('producto');// return url('/productos/'.$producto['id']);
+                return view('producto')->with('productos', $productos);
                 } 
                 
 
