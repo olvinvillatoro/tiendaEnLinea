@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateProductosTable extends Migration
 {
     /**
@@ -19,12 +17,9 @@ class CreateProductosTable extends Migration
             $table->string('descripcion');
             $table->string('url_imagen');
             $table->timestamps();
-
-          //  $table->foreign('id_modelo')->references('id')->on('modelos');
-
+            //$table->foreign('id_modelo')->references('id')->on('modelos');
         });
     }
-
     /**
      * Reverse the migrations.
      *

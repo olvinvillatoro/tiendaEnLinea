@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateTarjetasTable extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +11,12 @@ class CreateTarjetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarjetas', function (Blueprint $table) {
-            $table->bigInteger('numero_tarjeta');
-            $table->text('titular');
-            $table->text('ccv');
-            $table->datetime('fecha_vencimiento');
-
-
-            $table->timestamps();
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email',200)->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -31,6 +24,6 @@ class CreateTarjetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarjetas');
+        Schema::dropIfExists('password_resets');
     }
 }

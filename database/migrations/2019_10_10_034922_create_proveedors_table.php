@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateProveedorsTable extends Migration
 {
     /**
@@ -20,12 +18,10 @@ class CreateProveedorsTable extends Migration
             $table->text('correo_proveedor')->nullable();
             $table->longText('contacto_proveedor')->nullable();
             $table->longText('descripcion_proveedor')->nullable();
-
             $table->timestamps();
             $table->foreign('id_persona_encargada')->references('id_persona')->on('personas');
         });
     }
-
     /**
      * Reverse the migrations.
      *

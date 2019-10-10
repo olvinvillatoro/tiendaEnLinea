@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateTipoUsuariosTable extends Migration
+class CreateCarritosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +11,14 @@ class CreateTipoUsuariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_usuarios', function (Blueprint $table) {
-            $table->bigIncrements('id_tipo_usuario');
-            $table->text('nombre_tipo_usuario');
+        Schema::create('carritos', function (Blueprint $table) {
+            $table->bigIncrements('id_carrito');
+            $table->bigInteger('id_cliente');
+            $table->datetime('fecha');
             $table->timestamps();
+            $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -27,6 +26,6 @@ class CreateTipoUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_usuarios');
+        Schema::dropIfExists('carritos');
     }
 }

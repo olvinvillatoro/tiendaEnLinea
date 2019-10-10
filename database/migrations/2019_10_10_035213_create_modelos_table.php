@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateModelosTable extends Migration
 {
     /**
@@ -18,15 +16,11 @@ class CreateModelosTable extends Migration
             $table->bigInteger('id_producto')->unsigned();
             $table->bigInteger('id_marca')->unsigned();
             $table->string('nombre_modelo');
-
             $table->timestamps();
-
-           // $table->foreign('id_producto')->references('id')->on('productos');
-           // $table->foreign('id_marca')->references('id')->on('marcas');
-
+            $table->foreign('id_producto')->references('id')->on('productos');
+            $table->foreign('id_marca')->references('id')->on('marcas');
         });
     }
-
     /**
      * Reverse the migrations.
      *
