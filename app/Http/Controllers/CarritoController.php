@@ -25,4 +25,7 @@ class CarritoController extends Controller
         return 'Detalles de compra , el id de su compra es :' . $id;
 
     }
+    public function agregarCarrito($producto){
+
+    }
 }

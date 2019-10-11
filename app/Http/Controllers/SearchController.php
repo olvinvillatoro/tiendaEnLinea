@@ -92,12 +92,14 @@ class SearchController extends Controller
        $data = $buscar->buscar;
      
       
-       $productos= Producto::select('productos.descripcion','productos.url_imagen', 'modelos.nombre_modelo','marcas.nombre_marca')
+       $productos= Producto::select('productos.id','productos.descripcion','productos.url_imagen', 'modelos.nombre_modelo','marcas.nombre_marca','detalle_productos.precio')
        ->join('modelos', 'productos.id', '=', 'modelos.id')
-       ->join('marcas','modelos.id','=','marcas.id')
+                                    ->join('marcas','modelos.id','=','marcas.id')
+                                    ->join('detalle_productos','productos.id','=','detalle_productos.id_detalle')
+       
        ->Where('modelos.nombre_modelo', 'like', '%'.$data.'%')
        ->orWhere('marcas.nombre_marca', 'like', '%' . $data . '%')
-       ->orWhere('productos.descripcion', 'like', '%' . $buscar . '%')
+       ->orWhere('productos.descripcion', 'like', '%' . $data . '%')
        ->get();
 
        if($productos==null){
@@ -112,5 +114,6 @@ class SearchController extends Controller
         
         return view('search')->with('productos', null);    }
      }
+     
 
 }

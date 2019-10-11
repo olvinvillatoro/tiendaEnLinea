@@ -70,7 +70,7 @@
           </div>
           <div class="w-100"></div>
           <div class="col-md-12">
-              <p style="color: #000;">600 kg available</p>
+              <p style="color: #000;"><b style="color:#d41604 ;" >Disponibles</b> :{{$producto->cantidad}}</p>
           </div>
       </div>
       <p><a href="cart.html" class="btn btn-black py-3 px-5">Agregar al carrito</a></p>
