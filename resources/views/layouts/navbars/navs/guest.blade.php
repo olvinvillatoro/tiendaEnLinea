@@ -18,6 +18,15 @@
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
                 
+            <!--buscar-->
+            <li class="search-bar nav-item">
+                    <form action="{{route('buscar')}}" method="post">
+                            @csrf                 
+                           <input type="text" name="buscar"  placeholder="Buscar" value="{{ request()->input('buscar')}}">
+                            <button type="submit" class="btn btn-fill btn-primary"><i class="tim-icons icon-zoom-split"></i>{{ __('') }}</button>                                                 
+                    </form>
+            </li>
+            <!--/buscar-->
                 <li class="nav-item ">
                     <a href="{{ route('register') }}" class="nav-link">
                         <i class="tim-icons icon-laptop"></i> {{ __('Registrarse') }}

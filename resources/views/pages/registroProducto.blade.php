@@ -21,8 +21,9 @@
                         <select name="marca">
                           <option value="samsung">Samsung</option>
                           <option value="apple">Apple</option>
-                          <option value="xiaomi">Xiaomi</option>
-                          <option value="huawei">Huawei</option>
+                          <option value="xiaomi">Huawei</option>
+                          <option value="huawei">Xiaomi</option>
+                          <option value="huawei">Motorola</option>
                         </select> 
                     </div>
 

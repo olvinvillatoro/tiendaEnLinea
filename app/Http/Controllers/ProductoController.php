@@ -33,6 +33,16 @@ class ProductoController extends Controller
         $modelo= new Modelo;
         $marca = new Marca;
         $detalle= new DetalleProducto;
+        $producto=[
+            "nombre_modelo"=>"",
+            "nombre_marca"=>"",
+            "precio"=>"",
+            "url_imagen"=>"",
+            "descripcion"=>"",
+            "cantidad"=>""
+
+
+        ];
 
         $marca = Marca::select('id')->where('nombre_marca', $data->marca)->first();
         
@@ -49,8 +59,25 @@ class ProductoController extends Controller
                     $modelo->id_producto=$productos['id'];
 
                     $modelo->nombre_modelo=$data['nombre_modelo'];
-                    $modelo->save();
-                return view('producto')->with('productos', $productos);
+                    
+                    if($modelo->save()){
+                        $detalle->id_producto=$productos['id'];
+                        $detalle->id_proveedor=1;
+                        $detalle->precio=$data['precio'];
+                        $detalle->cantidad=$data['cantidad'];
+                        $detalle->save();
+                        
+                        $producto['nombre']=$modelo->nombre_modelo;
+                        $producto['marca']=$data->marca;
+                        $producto['precio']=$detalle->precio;
+                        $producto['url_imagen']=$productos->url_imagen;
+                        $producto['descripcion']=$productos->descripcion;
+                        $producto['disponible']=$detalle->cantidad;
+                        
+                        
+                        return view('producto')->with('producto', $producto);
+                    }
+               
                 } 
                 
 
@@ -83,10 +110,22 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        $productos= Producto::select('*')->where('id', $id)->first();
+       
+
+        $productos= Producto::select('modelos.nombre_modelo','marcas.nombre_marca',
+                                    'detalle_productos.precio','productos.url_imagen',
+                                    'productos.descripcion',
+                                    'detalle_productos.cantidad')
+                                    ->join('modelos', 'productos.id', '=', 'modelos.id')
+                                    ->join('marcas','modelos.id','=','marcas.id')
+                                    ->join('detalle_productos','productos.id','=','detalle_productos.id_detalle')
+                                    ->Where('productos.id', '=', $id)
+        
+        ->first();
+     
 
        
-        return view('producto')->with('productos', $productos);;
+        return view('producto')->with('producto', $productos);
     }
 
     /**

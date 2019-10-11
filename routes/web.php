@@ -1,12 +1,16 @@
 <?php
 
 
+
+
+
+
 /*Route::get('/', function () {
     return view('welcome');
 });
 */
 Route::get('/', 'WelcomeController@index');//->middleware('auth');
-	
+
 
 //crear un nuevo usuario cliente
 Route::redirect('/user/new', '/register');
@@ -60,6 +64,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
+
+//rutas busqueda
+Route::post('/buscar', 'SearchController@buscar')->name('buscar');
+Route::get('/buscar', 'SearchController@index');
+
+
+
+
+//rutas usuarios
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
 		Route::get('tarjeta', ['as' => 'pages.tarjeta', 'uses' => 'PageController@tarjetas']);
@@ -77,6 +90,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
+
+
 
 
 

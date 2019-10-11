@@ -22,7 +22,8 @@ class WelcomeController extends Controller
     public function index()
     {
       
-        $productos = Producto::inRandomOrder(8)->get();
+        $productos = Producto::take(8)->inRandomOrder()->get();
+       
         return view('welcome')->with('productos', $productos);
     }
 }

@@ -74,6 +74,7 @@ class RegisterController extends Controller
         $person = new Persona;
 
         $usuario->name=$data['name'];
+        $usuario->id_tipo_usuario=1;
         $usuario->email= $data['email'];
         $usuario->password= Hash::make($data['password']);
 
