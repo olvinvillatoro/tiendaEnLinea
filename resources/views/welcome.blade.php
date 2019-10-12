@@ -87,9 +87,23 @@
                                 </div>
                                 <div class="bottom-area d-flex px-3">
                                     <div class="m-auto d-flex">
-                                        <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                            <span><i class="ion-ios-menu"></i></span>
+                                        <a href="#" >
+                                            
                                         </a>
+                                       <form action="{{route('carrito.guardar')}}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$producto['id']}}">
+
+                                          <input type="hidden" name="nombre" value="{{$producto['nombre_modelo']}}">
+                                          <input type="hidden" name="precio" value="{{$producto['precio']}}">
+                                          <span class="add-to-cart d-flex justify-content-center align-items-center text-center"> 
+                                          <span><i class="ion-ios-menu">
+                                          <button  type="submit" ><span class="">                                           <span><i class="ion-ios-menu"></i></span>
+                                          </button></i></span>
+                                        </span>
+
+                                        </form>
+
                                         <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
                                             <span><i class="ion-ios-cart"></i></span>
                                         </a>

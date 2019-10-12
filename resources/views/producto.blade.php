@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+{{--dd($producto)--}}
 
 <div class="hero-wrap hero-bread" style="background-image: url('images/celulares.jpg');">
     <div class="container">
@@ -70,10 +70,19 @@
           </div>
           <div class="w-100"></div>
           <div class="col-md-12">
-              <p style="color: #000;"><b style="color:#d41604 ;" >Disponibles</b> :{{$producto->cantidad}}</p>
+              <p style="color: #000;"><b style="color:#d41604 ;" >Disponibles</b> :{{$producto['cantidad']}}</p>
           </div>
       </div>
-      <p><a href="cart.html" class="btn btn-black py-3 px-5">Agregar al carrito</a></p>
+      <p class="">
+          <form action="{{route('carrito.guardar')}}" method="post">
+            @csrf
+          <input type="hidden" name="id" value="{{$producto['id']}}">
+          <input type="hidden" name="nombre" value="{{$producto['nombre_modelo']}}">
+          <input type="hidden" name="precio" value="{{$producto['precio']}}">
+          <button  type="submit" ><span class="btn btn-black py-3 px-5"> Agregar Al Carrito</button>
+        
+        </form>
+      </p>
         </div>
     </div>
 </div>

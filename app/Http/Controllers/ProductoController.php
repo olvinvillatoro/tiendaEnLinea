@@ -34,6 +34,7 @@ class ProductoController extends Controller
         $marca = new Marca;
         $detalle= new DetalleProducto;
         $producto=[
+            "id"=>"",
             "nombre_modelo"=>"",
             "nombre_marca"=>"",
             "precio"=>"",
@@ -67,6 +68,7 @@ class ProductoController extends Controller
                         $detalle->cantidad=$data['cantidad'];
                         $detalle->save();
                         
+                        $producto['id']=$modelo->$productos['id'];
                         $producto['nombre']=$modelo->nombre_modelo;
                         $producto['marca']=$data->marca;
                         $producto['precio']=$detalle->precio;
@@ -112,13 +114,13 @@ class ProductoController extends Controller
     {
        
 
-        $productos= Producto::select('modelos.nombre_modelo','marcas.nombre_marca',
+        $productos= Producto::select('productos.id','modelos.nombre_modelo','marcas.nombre_marca',
                                     'detalle_productos.precio','productos.url_imagen',
                                     'productos.descripcion',
                                     'detalle_productos.cantidad')
-                                    ->join('modelos', 'productos.id', '=', 'modelos.id')
-                                    ->join('marcas','modelos.id','=','marcas.id')
-                                    ->join('detalle_productos','productos.id','=','detalle_productos.id_detalle')
+                                    ->join('modelos', 'productos.id', '=', 'modelos.id_producto')
+                                    ->join('marcas','modelos.id_marca','=','marcas.id')
+                                    ->join('detalle_productos','productos.id','=','detalle_productos.id_producto')
                                     ->Where('productos.id', '=', $id)
         
         ->first();

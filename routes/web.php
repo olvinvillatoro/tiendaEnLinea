@@ -1,6 +1,7 @@
 <?php
 
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 
 
@@ -38,8 +39,9 @@ Route::post('/productos/{id}','ProductoController@show');
 
 
 //rutas Factura
-Route::get('/Factura', 'FacturaController@index')->name('factura'); //muestra datos de la tabla Facturas
-Route::get('/Factura/store/request', 'FacturaController@store');
+Route::get('/factura', 'FacturaController@index')->name('factura'); //muestra datos de la tabla Facturas
+Route::get('/factura/store/request', 'FacturaController@store');
+Route::post('/factura', 'FacturaController@store')->name('factura.pagar');
 
 
 
@@ -59,6 +61,13 @@ Route::get('/TipoUsuario/{id_tipo_usuario}','TipoUsuarioController@create');
 //rutas carrito
 Route::get('/Carrito','CarritoController@show')->name('carrito');//muestra datos de la tabla carritos
 Route::get('/Carrito/{id}','CarritoController@comprar');
+Route::post('/carrito', 'CarritoController@store' )->name('carrito.guardar');
+Route::delete('carrito/{id}', 'CarritoController@destroy')->name('carrito.quitar');
+
+Route::get('vaciar', function () {
+	Cart::destroy();
+	
+});
 
 Auth::routes();
 

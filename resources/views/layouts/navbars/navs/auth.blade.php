@@ -29,13 +29,18 @@
             <!--/buscar-->
             
             <!--Carrito-->
-            <li class="nav-item">
+            <li class="nav-item ">
                     <a href="{{route('carrito')}}" class=" nav-link" >
-                    
+                    <!--
                         <div class="photo">
-                            <img src="{{ asset('black') }}/img/car.png" alt="">
+                            <img src="{ { asset('black') }}/img/car.png" alt="">
                         </div>
+                    -->
+                       <b> <span class="tim-icons icon-cart" style="color:rgba(233,152,40);"> <span class="rounded-circle">{{Cart::instance('default')->count()}}</span></span></b>
+
                     </a>
+               
+
                 </li>
             
 

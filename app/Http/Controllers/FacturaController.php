@@ -2,26 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-
+use App\Producto;
+use App\Marca;
+use App\Carrito;
+use App\DetalleProducto;
+use App\DetalleCarrito;
 class FacturaController extends Controller
 {
     public function index(){
-        $facturas = \DB::table('facturas')->get();
-            /*->join('carritos','facturas.id_carrito','carritos.id_carrito')
-            ->join('clientes','carritos.id_cliente','clientes.id_cliente')
-            ->join('tarjetas','clientes.numero_tarjeta','tarjetas.numero_tarjeta')
-            ->select('facturas.*','carritos.id_cliente','clientes.numero_tarjeta','tarjetas.titular')
-            ->get();
-             */ 
-            
-            
-            
-        return view('factura',['facturas' => $facturas]);
-       
-    }
     
-    public function store(Request $request){ //Procesar la creacion de una factura
-        return'Generando factura';
+    return view('factura');
+    }
+
+    public function store(){
+       $detCarrito= new DetalleCarrito;
+        $producto=new Producto;
+        $detalle;
+        $carrito=new Carrito;
+        $productos=Cart::content();
+        foreach ($productos as $producto) {
+           $detalle= DetalleProducto::select('id_detalle')->where('id_producto', $producto->id)->first();
+           
+           $detCarrito->idCarrito=1;
+           $detCarrito->idDetalleProducto=$detalle->id_detalle;
+           $detCarrito->cantProducto=1;
+           $detCarrito->save();
+           Cart::instance('default')->destroy();
+            return redirect('/');
+            
+
+       }
     }
 }
